@@ -4,12 +4,12 @@
  *  Description:
  **************************************************************************** */
 
-import edu.princeton.cs.algs4.UF;
+import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
     private static int n;
     int[] objArr = new int[n * n + 2];
-    UF uf = new UF(n * n);
+    WeightedQuickUnionUF uf = new WeightedQuickUnionUF(n * n);
     int count;
     int virtTop = 0;
     int virtBottom = n * n + 1;
