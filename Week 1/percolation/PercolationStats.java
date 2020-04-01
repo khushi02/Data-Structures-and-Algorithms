@@ -57,6 +57,9 @@ public class PercolationStats {
     }
 
     // test client (see below)
-    public static void main(String[] args, int n, int t) {
+    public static void main(String[] args) {
+        int n = Integer.parseInt(args[0]);
+        int t = Integer.parseInt(args[1]);
+        PercolationStats percStats = new PercolationStats(n, t);
     }
 }
