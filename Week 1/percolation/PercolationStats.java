@@ -1,6 +1,6 @@
 /* *****************************************************************************
- *  Name:
- *  Date:
+ *  Name: Khushi Wadhwa
+ *  Date: 3/27/2020
  *  Description:
  **************************************************************************** */
 
@@ -9,10 +9,10 @@ import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
-    int n;
-    int t;
-    Percolation perc = new Percolation(n);
-    double stats[] = new double[t];
+    private int n;
+    private int t;
+    private Percolation perc = new Percolation(n);
+    private double stats[] = new double[t];
 
     // perform independent trials on an n-by-n grid
     public PercolationStats(int n, int trials) {
