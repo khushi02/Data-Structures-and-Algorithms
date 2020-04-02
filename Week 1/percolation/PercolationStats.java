@@ -11,11 +11,12 @@ import edu.princeton.cs.algs4.StdStats;
 public class PercolationStats {
     private int n;
     private int t;
-    private Percolation perc = new Percolation(n);
     private double stats[] = new double[t];
 
     // perform independent trials on an n-by-n grid
     public PercolationStats(int n, int trials) {
+        Percolation perc = new Percolation(n);
+
         if (n <= 0 || trials <= 0) {
             throw new IllegalArgumentException(
                     "Grid size and number of trials must be greater than 0.");
@@ -29,7 +30,7 @@ public class PercolationStats {
                     perc.open(row, col);
                 }
             }
-            stats[i] = perc.count;
+            stats[i] = perc.numberOfOpenSites();
         }
         StdOut.println("Mean: " + mean());
         StdOut.println("Standard Deviation: " + stddev());
