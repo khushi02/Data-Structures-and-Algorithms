@@ -20,7 +20,7 @@ public class Percolation {
             throw new IllegalArgumentException("N must be greater than 0");
         }
 
-        for (int i = 1; i <= n * n; i++) {
+        for (int i = 1; i < n * n; i++) {
             objArr[i] = 0;
         }
     }
