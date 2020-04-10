@@ -45,6 +45,7 @@ public class Deque<Item> implements Iterable<Item> {
             first.next = oldFirst;
         }
         count++;
+        System.out.println(first.item);
     }
 
     // add the item to the back
@@ -84,7 +85,6 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     // remove and return the item from the back
-    //needs work
     public Item removeLast() {
         if (isEmpty()) {
             throw new NoSuchElementException();
@@ -126,6 +126,14 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     // unit testing (required)
-    public static void main(String[] args)
+    public static void main(String[] args) {
+        Deque<Integer> dq = new Deque<>();
+        dq.addFirst(1);
+        dq.addFirst(2);
+        dq.addFirst(3);
+        dq.removeLast();
+        dq.removeLast();
+        dq.removeLast();
+    }
 
 }
