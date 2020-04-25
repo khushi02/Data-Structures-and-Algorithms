@@ -7,12 +7,14 @@
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
-    private static int n;
-    private int[] objArr = new int[n * n + 2];
-    private WeightedQuickUnionUF uf = new WeightedQuickUnionUF(n * n);
+    private int len;
+    private WeightedQuickUnionUF uf;
     private int count;
-    private int virtTop = 0;
-    private int virtBottom = n * n + 1;
+    private int virtTop;
+    private int virtBottom;
+    private int gridSize;
+    private boolean[] grid;
+    private boolean percolates;
 
     // creates n-by-n grid, with all sites initially blocked
     public Percolation(int n) {
@@ -20,9 +22,12 @@ public class Percolation {
             throw new IllegalArgumentException("N must be greater than 0");
         }
 
-        for (int i = 1; i <= n * n; i++) {
-            objArr[i] = 0;
-        }
+        rowLen = N;
+        gridSize = N * N;
+        uf = new WeightedQuickUnionUF(gridSize + 2);
+        grid = new boolean[gridSize];
+        topIndex = gridSize;
+        bottomIndex = gridSize + 1;
     }
 
     // creates a 1D index for a 2D coordinate
@@ -31,8 +36,12 @@ public class Percolation {
     }
 
     // checks to make sure row and col are within bounds
-    private void isValid(int i) {
-        if (i > n || i <= 0) {
+    private void isValid(int row, int col) {
+        if (row > len || row < 1) {
+            throw new IllegalArgumentException("Number must be between 1 and N");
+        }
+
+        if (col > len || col < 1) {
             throw new IllegalArgumentException("Number must be between 1 and N");
         }
     }
@@ -73,8 +82,7 @@ public class Percolation {
 
         if (objArr[xyTo1D(row, col)] == 1) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -86,8 +94,7 @@ public class Percolation {
 
         if (objArr[xyTo1D(row, col)] == 0) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
